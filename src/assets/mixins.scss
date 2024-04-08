@@ -9,13 +9,13 @@
   .chevron-up {
     @include chevron-icon;
     border-width: 0 0.5em 0.5em 0.5em;
-    border-color: transparent transparent #e3dcd2 transparent;
+    border-color: transparent transparent #0d0d0d transparent;
   }
   
   .chevron-down {
     @include chevron-icon;
     border-width: 0.5em 0.5em 0 0.5em;
-    border-color: #e3dcd2 transparent transparent transparent;
+    border-color: #0d0d0d transparent transparent transparent;
   }
   
   .chevron-left {

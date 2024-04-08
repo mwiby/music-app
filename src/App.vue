@@ -19,13 +19,11 @@ let openMenu = ref(false)
       </div>
       <button @click="openMenu = !openMenu" :class="openMenu ? 'bg-[#282828]' : 'bg-black'"
                 class="btn-chevron">
-                <div class="flex items-center">
+                <div class="btn-chevron-bar">
                     <img 
-                      class="rounded-full" 
-                      width="27"
-                      src="https://unsplash.com/photos/black-violin-on-underwater-digital-wallpaper-yO4XF2uC4g0"
+                      src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     >
-                    <div class="text-white text-[14px] ml-1.5 font-semibold">Markus</div>
+                    <span>Markus</span>
                     <i class="chevron-down" v-if="!openMenu" @click="openMenu = true"></i>
                     <i class="chevron-up" v-else @click="openMenu = false"></i>
                 </div>
@@ -56,6 +54,8 @@ let openMenu = ref(false)
   margin-left: 1.5rem;
 }
 .btn-chevron{
+  display: inline-flex;
+  align-items: center;
   appearance: none;
   border: none;
   padding: 0;
@@ -63,7 +63,26 @@ let openMenu = ref(false)
   font-family: inherit; 
   font-size: inherit; 
   margin-left: 1.2rem;
-  cursor: pointer; /* Add pointer cursor */
+  cursor: pointer;
 }
 
+.btn-chevron-bar{
+  background-color:$primary-grey;
+  padding: 0 0.4rem;
+  color: $text-color;
+  border-radius: 45%;
+
+  span{
+    margin: 0.5rem;
+  }
+  img{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 20px;
+  }
+  i{
+    margin-bottom: 0.2rem;
+  }
+
+}
 </style>
