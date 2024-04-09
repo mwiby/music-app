@@ -28,6 +28,13 @@ let openMenu = ref(false)
                     <i class="chevron-up" v-else @click="openMenu = false"></i>
                 </div>
       </button>
+
+      <span v-if="openMenu" class="menu-container">
+        <ul class="menu-list">
+          <li class="menu-item">Profile</li>
+          <li class="menu-item">Log out</li>
+        </ul>
+      </span>
     </div>
   </div>
 </template>
@@ -84,5 +91,36 @@ let openMenu = ref(false)
     margin-bottom: 0.2rem;
   }
 
+}
+.menu-container {
+  position: fixed;
+  background-color:$secondary-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  border-radius: 0.25rem;
+  top: 52px;
+  right: 35px;
+  padding: 0.25rem;
+  cursor: pointer;
+  width: 190px;
+
+  .menu-list {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 14px;
+    
+    li {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #3E3D3D;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $primary-grey;
+      }
+    }
+  }
 }
 </style>
