@@ -36,6 +36,35 @@ let openMenu = ref(false)
         </ul>
       </span>
     </div>
+
+    <div class="side-bar">
+    <RouterLink to="/">
+      <span>IMG</span>
+      <!--<img class="logo" src="/images/icons/spotify-logo.png" alt="Spotify Logo" width="125"> -->
+    </RouterLink>
+    <div class="spacer"></div>
+    <ul>
+      <RouterLink to="/">
+        <MenuItem class="menu-item" :iconSize="23" name="Home" iconString="home" pageUrl="/" />
+      </RouterLink>
+      <RouterLink to="/search">
+        <MenuItem class="menu-item" :iconSize="24" name="Search" iconString="search" pageUrl="/search" />
+      </RouterLink>
+      <RouterLink to="/library">
+        <MenuItem class="menu-item" :iconSize="23" name="Your Library" iconString="library" pageUrl="/library" />
+      </RouterLink>
+      <div class="spacer-y"></div>
+      <MenuItem class="menu-item" :iconSize="24" name="Create Playlist" iconString="playlist" pageUrl="/playlist" />
+      <MenuItem class="menu-item" :iconSize="27" name="Liked Songs" iconString="liked" pageUrl="/liked" />
+    </ul>
+    <div class="divider"></div>
+    <ul>
+      <li class="playlist">My Playlist #1</li>
+      <li class="playlist">My Playlist #2</li>
+      <li class="playlist">My Playlist #3</li>
+      <li class="playlist">My Playlist #4</li>
+    </ul>
+  </div>
   </div>
 </template>
 
@@ -112,7 +141,8 @@ let openMenu = ref(false)
     li {
       padding: 0.75rem 1rem;
       cursor: pointer;
-
+      list-style-type: none;
+      
       &:hover {
         background-color: #3E3D3D;
       }
@@ -120,6 +150,51 @@ let openMenu = ref(false)
       &:not(:last-child) {
         border-bottom: 1px solid $primary-grey;
       }
+    }
+  }
+}
+.side-bar {
+  
+  .logo {
+    width: 125px;
+  }
+
+  .spacer {
+    margin-top: 8px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    .menu-item {
+      margin-left: 1px;
+
+      & + .menu-item {
+        margin-left: 0;
+      }
+    }
+
+    .spacer-y {
+      padding-top: 3.5rem;
+    }
+  }
+
+  .divider {
+    border-bottom: 1px solid #4a4a4a;
+    margin-bottom: 8px;
+  }
+
+  .playlist {
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+    color: #ccc;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
     }
   }
 }
