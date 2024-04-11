@@ -1,5 +1,16 @@
 {
   "files": [],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vue"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"

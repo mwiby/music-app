@@ -2,8 +2,11 @@
 import { ref, onMounted } from "vue"
 import { RouterLink, RouterView } from "vue-router"
 
+import MenuItem from "./components/MenuItem.vue"
+
 let openMenu = ref(false)
 </script>
+
 
 <template>
 
@@ -38,41 +41,49 @@ let openMenu = ref(false)
     </div>
 
     <div class="side-bar">
-    <RouterLink to="/">
-      <span>IMG</span>
-      <!--<img class="logo" src="/images/icons/spotify-logo.png" alt="Spotify Logo" width="125"> -->
-    </RouterLink>
-    <div class="spacer"></div>
-    <ul>
       <RouterLink to="/">
-        <MenuItem class="menu-item" :iconSize="23" name="Home" iconString="home" pageUrl="/" />
+        <span>IMG</span>
+        <!--<img class="logo" src="/images/icons/spotify-logo.png" alt="Spotify Logo" width="125"> -->
       </RouterLink>
-      <RouterLink to="/search">
-        <MenuItem class="menu-item" :iconSize="24" name="Search" iconString="search" pageUrl="/search" />
-      </RouterLink>
-      <RouterLink to="/library">
-        <MenuItem class="menu-item" :iconSize="23" name="Your Library" iconString="library" pageUrl="/library" />
-      </RouterLink>
-      <div class="spacer-y"></div>
-      <MenuItem class="menu-item" :iconSize="24" name="Create Playlist" iconString="playlist" pageUrl="/playlist" />
-      <MenuItem class="menu-item" :iconSize="27" name="Liked Songs" iconString="liked" pageUrl="/liked" />
-    </ul>
-    <div class="divider"></div>
-    <ul>
-      <li class="playlist">My Playlist #1</li>
-      <li class="playlist">My Playlist #2</li>
-      <li class="playlist">My Playlist #3</li>
-      <li class="playlist">My Playlist #4</li>
-    </ul>
+      <div class="spacer"></div>
+      <ul>
+        <RouterLink to="/">
+          <MenuItem class="menu-item" :iconSize="23" name="Home" iconString="home" pageUrl="/" />
+        </RouterLink>
+        <RouterLink to="/search">
+          <MenuItem class="menu-item" :iconSize="24" name="Search" iconString="search" pageUrl="/search" />
+        </RouterLink>
+        <RouterLink to="/library">
+          <MenuItem class="menu-item" :iconSize="23" name="Your Library" iconString="library" pageUrl="/library" />
+        </RouterLink>
+          <div class="spacer-y"></div>
+          <MenuItem class="menu-item" :iconSize="24" name="Create Playlist" iconString="playlist" pageUrl="/playlist" />
+          <MenuItem class="menu-item" :iconSize="27" name="Liked Songs" iconString="liked" pageUrl="/liked" />
+      </ul>
+      <div class="divider"></div>
+      <ul>
+        <li class="playlist">My Playlist #1</li>
+        <li class="playlist">My Playlist #2</li>
+        <li class="playlist">Topp Playlist #3</li>
+        <li class="playlist">Global Playlist #4</li>
+      </ul>
+    </div>
   </div>
+
+  <div>
+    <div></div>
+      <RouterView />
+    <div></div>
   </div>
+
+    <!-- <MusicPlayer v-if="currentTrack"/> -->
 </template>
 
 <style lang="scss" scoped>
 @import "@/assets/styles.scss";
 
 .top-bar {
-  width: calc(100% - 240px); 
+  width: calc(100% - 330px); 
   height: 60px;
   position: fixed;
   right: 0; 
@@ -154,47 +165,54 @@ let openMenu = ref(false)
   }
 }
 .side-bar {
-  
-  .logo {
-    width: 125px;
-  }
-
-  .spacer {
-    margin-top: 8px;
-  }
+  width: 250px;
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
 
     .menu-item {
-      margin-left: 1px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-      & + .menu-item {
-        margin-left: 0;
+      &:hover {
+        background-color: $primary-grey;
+      }
+
+      span {
+        margin-left: 10px;
       }
     }
 
+    .spacer,
     .spacer-y {
-      padding-top: 3.5rem;
+      height: 20px;
     }
-  }
 
-  .divider {
-    border-bottom: 1px solid #4a4a4a;
-    margin-bottom: 8px;
-  }
+    .divider {
+      height: 1px;
+      background-color: #383838;
+      margin: 20px 0;
+    }
 
-  .playlist {
-    font-weight: bold;
-    font-size: 13px;
-    margin-top: 10px;
-    color: #ccc;
-    cursor: pointer;
+    .playlist {
+      padding: 10px;
+      cursor: pointer;
 
-    &:hover {
-      color: #fff;
+      &:hover {
+        background-color: $primary-grey;
+      }
     }
   }
 }
