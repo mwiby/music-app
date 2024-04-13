@@ -20,8 +20,7 @@ let openMenu = ref(false)
           <i class="chevron-right"></i>
         </button>
       </div>
-      <button @click="openMenu = !openMenu" :class="openMenu ? 'bg-[#282828]' : 'bg-black'"
-                class="btn-chevron">
+      <button @click="openMenu = !openMenu">
                 <div class="btn-chevron-bar">
                     <img 
                       src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -188,6 +187,7 @@ let openMenu = ref(false)
 
       &:hover {
         background-color: $primary-grey;
+        color: $secondary-color;
       }
 
       span {
@@ -212,6 +212,7 @@ let openMenu = ref(false)
 
       &:hover {
         background-color: $primary-grey;
+        color: $secondary-color;
       }
     }
   }
